@@ -1,32 +1,27 @@
-import { useState, useEffect } from "react";
-import MemeCard from "./MemeCard";
-import ShimmerUI from "./ShimmerUI";
-
-function App() {
-  const [memes, setMemes] = useState(null);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await fetch("https://meme-api.com/gimme/20");
-        const json = await data.json();
-        setMemes(json.memes);
-      } catch (error) {
-        console.error("ERROR: ", error);
-      }
-    }
-    fetchData();
-  }, []);
+import React from "react";
+import Body from "./Body";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import Team from "./Team";
+import About from "./About";
+import Header from "./Header";
+import ProtectedRoute from "./ProtectedRoute";
+const App = () => {
   return (
-    <div className="flex flex-wrap">
-      {!memes ? (
-        <ShimmerUI />
-      ) : (
-        memes.map((meme) => {
-          return <MemeCard meme={meme} />;
-        })
-      )}
+    <div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body />}></Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/team" element={<Team />}></Route>
+          </Route>
+          <Route path="/login" element={<Login />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
