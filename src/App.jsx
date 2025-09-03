@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Body from "./Body";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
@@ -6,15 +6,18 @@ import Team from "./Team";
 import About from "./About";
 import Header from "./Header";
 import ProtectedRoute from "./ProtectedRoute";
+import LanguageSelect from "./LanguageSelect";
 const App = () => {
+  const [lang, setLang] = useState("en");
   return (
     <div>
+      <LanguageSelect lang={lang} setLang={setLang} />
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Body />}></Route>
           <Route element={<ProtectedRoute />}>
-            <Route path="/about" element={<About />}></Route>
+            <Route path="/about" element={<About lang={lang} />}></Route>
             <Route path="/team" element={<Team />}></Route>
           </Route>
           <Route path="/login" element={<Login />}></Route>
