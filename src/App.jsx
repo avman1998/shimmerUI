@@ -5,6 +5,7 @@ import Login from "./Login";
 import Team from "./Team";
 import About from "./About";
 import Header from "./Header";
+import Accordion from "./Accordion";
 import ProtectedRoute from "./ProtectedRoute";
 import LanguageSelect from "./LanguageSelect";
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/team" element={<Team />}></Route>
           </Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/accordion" element={<Accordion />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
