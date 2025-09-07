@@ -9,6 +9,7 @@ import Accordion from "./Accordion";
 import ProtectedRoute from "./ProtectedRoute";
 import LanguageSelect from "./LanguageSelect";
 import ImageSlider from "./ImageSlider";
+import Autocomplete from "./Autocomplete";
 const App = () => {
   const [lang, setLang] = useState("en");
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/accordion" element={<Accordion />}></Route>
           <Route path="/image-slider" element={<ImageSlider />}></Route>
+          <Route path="/autocomplete" element={<Autocomplete />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

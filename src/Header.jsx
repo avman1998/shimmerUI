@@ -8,6 +8,7 @@ const Header = () => {
       <Link to="/login">Login</Link>
       <Link to="/accordion">Accordion</Link>
       <Link to="image-slider">Image slider</Link>
+      <Link to="/autocomplete">Autocomplete</Link>
     </nav>
   );
 };
