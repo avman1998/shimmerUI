@@ -8,6 +8,7 @@ import Header from "./Header";
 import Accordion from "./Accordion";
 import ProtectedRoute from "./ProtectedRoute";
 import LanguageSelect from "./LanguageSelect";
+import ImageSlider from "./ImageSlider";
 const App = () => {
   const [lang, setLang] = useState("en");
   return (
@@ -23,6 +24,7 @@ const App = () => {
           </Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/accordion" element={<Accordion />}></Route>
+          <Route path="/image-slider" element={<ImageSlider />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
